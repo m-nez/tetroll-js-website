@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #000000;
+}
+
+#app {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toolbar {
+    text-align: center;
+    display: none;
+    padding: 20px;
+    background-color: #3c3c3c;
+    border: 2px solid #007e2a98;
+    margin: 10px 0;
+}
+
+#join-link {
+    color: rgba(127,255,127);
+}
