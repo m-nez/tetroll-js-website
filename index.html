@@ -7,16 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
     <title>Tetroll</title>
-  <script type="module" crossorigin src="assets/index-DP-7FwHz.js"></script>
+  <script type="module" crossorigin src="assets/index-CJTeUk19.js"></script>
 </head>
 
 <body>
     <div id="toolbar">
         You are hosting a game of Tetroll. Send an invite link to a friend:
         <span id="join-link"></span>
+
+        <h3>How to play</h3>
+        Complete 21 lines first. Do not fill up the board 3 times.<br />
+        <h3>Controls</h3>
+        move blocks - A, S, D, Left Arrow, Down Arrow, Right Arrow, J, K, L<br />
+        rotate blocks clockwise - W, E, Up Arrow, I, O<br />
+        rotate blocks counterclockwise - Q, U<br />
+        drop - Shift
     </div>
-    <div id="app">
-        <div id="game-container"></div>
+    <div id="container">
+        <div id="app">
+            <div id="game-container"></div>
+        </div>
+        <!-- Control panel (lower third) -->
+        <div class="control-panel" role="region" aria-label="Game controls">
+            <button class="control-btn" data-action="ROTATE_CCW" aria-label="Rotate Counterclockwise">ROTATE
+                CCW</button>
+            <button class="control-btn" data-action="DROP" aria-label="Drop">DROP</button>
+            <button class="control-btn" data-action="ROTATE_CW" aria-label="Rotate Clockwise">ROTATE CW</button>
+
+            <button class="control-btn" data-action="LEFT" aria-label="Left">LEFT</button>
+            <button class="control-btn" data-action="DOWN" aria-label="Down">DOWN</button>
+            <button class="control-btn" data-action="RIGHT" aria-label="Right">RIGHT</button>
+        </div>
     </div>
 </body>
 

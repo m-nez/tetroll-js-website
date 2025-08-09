@@ -1,3 +1,85 @@
+:root {
+    --panel-height: 33.333vh;
+    /* lower third */
+    --gap: 8px;
+    --btn-radius: 12px;
+    --btn-font: 18px;
+}
+
+/* Panel fixed to bottom, respects safe-area for iOS */
+.control-panel {
+    /*position: fixed;*/
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(var(--panel-height) + env(safe-area-inset-bottom));
+    padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    /* 2 rows */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: var(--gap);
+    align-items: stretch;
+    justify-items: stretch;
+    background: rgba(0, 0, 0, 0.12);
+    /* subtle translucent background */
+    backdrop-filter: blur(6px);
+    z-index: 9999;
+    touch-action: manipulation;
+}
+
+.control-btn {
+    user-select: none;
+    -webkit-user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--btn-font);
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    border-radius: var(--btn-radius);
+    border: 2px solid white;
+    /* White border */
+    background: transparent;
+    /* Transparent background */
+    color: white;
+    /* White text */
+    box-shadow: none;
+    /* No drop shadow */
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color .1s ease, transform .06s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.control-btn:active,
+.control-btn.pressed {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Light overlay on press */
+    transform: translateY(2px) scale(0.995);
+}
+
+
+/* Larger text on bigger screens */
+@media (min-width: 420px) {
+    .control-btn {
+        font-size: 20px;
+    }
+}
+
+/* Optional: hide panel on desktop if not wanted */
+@media (hover: hover) and (pointer: fine) {
+
+    /* hide on desktop */
+    .control-panel {
+        display: none;
+    }
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -5,9 +87,16 @@ body {
     background-color: #000000;
 }
 
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 #app {
     width: 100%;
-    height: 100vh;
+    /*height: 100vh;*/
+    flex: 1;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -24,5 +113,5 @@ body {
 }
 
 #join-link {
-    color: rgba(127,255,127);
+    color: rgba(127, 255, 127);
 }
