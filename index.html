@@ -3,25 +3,87 @@
 
 <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Tetroll</title>
-  <script type="module" crossorigin src="assets/index-CJTeUk19.js"></script>
+  <script type="module" crossorigin src="/assets/index-BMXrqPR7.js"></script>
 </head>
 
 <body>
-    <div id="toolbar">
-        You are hosting a game of Tetroll. Send an invite link to a friend:
-        <span id="join-link"></span>
+    <header>
+        <div class="banner">
+            <a href="/">
+                <img src="/ui/banner_w_border.png" alt="Website Banner" class="banner">
+            </a>
+        </div>
+    </header>
+    <div id="toolbar" class="menu">
+        <div class="two-columns">
+            <div class="left-column">
+                You are hosting a game of Tetroll.<div class="streamer-mode-hide"> Send an invite link to a
+                    friend:<br />
+                    <span id="join-link"></span>
+                    <button data-action="enable-streamer-mode">Hide invite link</button>
+                </div>
+                <div class="streamer-mode-show">
+                    <button data-action="disable-streamer-mode">Show invite link</button>
+                </div>
+                <h3>Make the game public</h3>
+                <div id="publish-form" class="two-columns">
+                    <input type="text" value="My Game" oninput="this.value=this.value.replace(/[^a-zA-Z0-9 ]/g,'')"
+                        id="publish-name" name="publish-name" maxlength="30" placeholder="Enter game name"
+                        class="left-column" /><button id="publish-button" class="right-column" disabled
+                        autocomplete="off">Publish</button>
+                </div>
 
-        <h3>How to play</h3>
-        Complete 21 lines first. Do not fill up the board 3 times.<br />
-        <h3>Controls</h3>
-        move blocks - A, S, D, Left Arrow, Down Arrow, Right Arrow, J, K, L<br />
-        rotate blocks clockwise - W, E, Up Arrow, I, O<br />
-        rotate blocks counterclockwise - Q, U<br />
-        drop - Shift
+                <h3>How to play</h3>
+                Complete 21 lines first. Do not fill the board vertically 3 times. Your board is on the left.
+                <div style="display:flex; justify-content: center; align-items: center; width: 100%;">
+                    <iframe src="https://www.youtube-nocookie.com/embed/-3bvb5BkToM?si=er_EOtazbYu1EvPm&rel=0"
+                        style="width: 100%; aspect-ratio: 16 / 9; height: auto; border: none; display: inline-block; max-width: 560px; justify-content: center; align-items: center"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <h3>Controls</h3>
+                move blocks - A, S, D, Left Arrow, Down Arrow, Right Arrow, J, K, L<br />
+                rotate blocks clockwise - W, E, Up Arrow, I, O, X<br />
+                rotate blocks counterclockwise - Q, U, Z<br />
+                drop - Shift, Space
+            </div>
+            <div class="right-column">
+                <h1>Active Public Games</h1>
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Created At</th>
+                            <th><button id="join-any-button">Join Any</button></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="no-games-popup" class="popup">No games to join</div>
+                <h3>Play with the computer</h3>
+                <div class="button-row">
+                    <button onclick="window.location.href='/?playai=true&aiperiod=300'">Easy</button>
+                    <button onclick="window.location.href='/?playai=true&aiperiod=100'">Medium</button>
+                    <button onclick="window.location.href='/?playai=true&aiperiod=33'">Hard</button>
+                    <button onclick="window.location.href='/?playai=true&aiperiod=4'">Insane</button>
+                </div>
+            </div>
+        </div>
+        <br />
+        <a href="https://discord.gg/H5fXqmEc" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:10px 20px;background:#5865F2;color:white;
+          border-radius:8px;text-decoration:none;font-weight:bold;">
+            Join our Discord
+        </a>
+        <p>
+            Made by m-nez |
+            <a href="https://github.com/m-nez" target="_blank" rel="noopener noreferrer" style="color:white">Github</a>
+        </p>
+
     </div>
     <div id="container">
         <div id="app">
